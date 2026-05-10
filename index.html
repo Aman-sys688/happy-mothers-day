@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Mother's Day! 🦜❤️</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #fff0f6; /* Soft Pink */
+            margin: 0;
+            font-family: 'Comic Sans MS', 'Chalkboard SE', cursive;
+            overflow: hidden;
+        }
+
+        /* Floating Hearts Animation */
+        .bg-heart {
+            position: absolute;
+            color: rgba(255, 107, 107, 0.3);
+            font-size: 20px;
+            animation: float 6s linear infinite;
+            bottom: -50px;
+            z-index: -1;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+            100% { transform: translateY(-110vh) rotate(360deg); opacity: 0; }
+        }
+
+        .card {
+            width: 320px;
+            height: 450px;
+            perspective: 1000px;
+        }
+
+        .card-inner {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            transition: transform 0.8s;
+            transform-style: preserve-3d;
+            cursor: pointer;
+        }
+
+        .card:hover .card-inner {
+            transform: rotateY(180deg);
+        }
+
+        .card-front, .card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            border-radius: 25px;
+            padding: 30px;
+            box-sizing: border-box;
+            text-align: center;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+
+        .card-front {
+            background-color: #ff9ff3;
+            color: white;
+            border: 8px solid #f368e0;
+        }
+
+        .card-back {
+            background-color: white;
+            color: #2d3436;
+            transform: rotateY(180deg);
+            border: 8px solid #ff9ff3;
+        }
+
+        .animal-row { font-size: 40px; margin: 10px 0; }
+        h1 { font-size: 28px; margin: 10px 0; text-shadow: 2px 2px #f368e0; }
+        p { font-size: 18px; margin: 5px 0; }
+        .signature { margin-top: 20px; color: #ff6b6b; font-weight: bold; }
+    </style>
+</head>
+<body>
+
+    <!-- Background Hearts -->
+    <script>
+        for (let i = 0; i < 15; i++) {
+            let heart = document.createElement('div');
+            heart.className = 'bg-heart';
+            heart.innerHTML = '❤️';
+            heart.style.left = Math.random() * 100 + 'vw';
+            heart.style.animationDelay = Math.random() * 5 + 's';
+            document.body.appendChild(heart);
+        }
+    </script>
+
+    <div class="card">
+        <div class="card-inner">
+            <!-- Front -->
+            <div class="card-front">
+                <div class="animal-row">🦜❤️🦜</div>
+                <h1>Happy Mother's Day!</h1>
+                <div class="animal-row">🐱🐶🐼</div>
+                <p>Tap to open...</p>
+            </div>
+            <!-- Back -->
+            <div class="card-back">
+                <div class="animal-row">🐰🐘🦒</div>
+                <h2>You're the Best!</h2>
+                <p>To the kindest, sweetest, and most amazing Mom in the world!</p>
+                <p class="signature">Love always, [Your Name] ❤️</p>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
